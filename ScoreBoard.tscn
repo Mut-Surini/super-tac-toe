@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxyuv5f8s2jpt"]
+
+[ext_resource type="PackedScene" uid="uid://divgl2y7ljubm" path="res://identity.tscn" id="1_kx51w"]
+[ext_resource type="Script" path="res://ScoreBoard.gd" id="1_qopg0"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_qopg0")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.01, 0.01)
+text = "`"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="identity1" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 141)
+scale = Vector2(4.5, 4.5)
+player = 1
+
+[node name="identity2" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 312)
+scale = Vector2(4.5, 4.5)
+player = 2
+
+[node name="identity3" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 484)
+scale = Vector2(4.5, 4.5)
+player = 3
+
+[node name="identity4" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 659)
+scale = Vector2(4.5, 4.5)
+player = 4
+
+[node name="identity5" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 837)
+scale = Vector2(4.5, 4.5)
+player = 5
+
+[node name="identity6" parent="Control" instance=ExtResource("1_kx51w")]
+position = Vector2(1573, 1010)
+scale = Vector2(4.5, 4.5)
+player = 6

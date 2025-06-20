@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cat28wn8thwxf"]
+
+[ext_resource type="FontFile" uid="uid://oeg3xuj1p6cf" path="res://yoster.ttf" id="1_863p5"]
+
+[node name="Label" type="Label"]
+texture_filter = 1
+offset_right = 42.0
+offset_bottom = 17.0
+scale = Vector2(10, 10)
+theme_override_fonts/font = ExtResource("1_863p5")
+theme_override_font_sizes/font_size = 200
+text = "TEXT
+"
+horizontal_alignment = 1
+vertical_alignment = 1

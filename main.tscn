@@ -1,0 +1,95 @@
+[gd_scene load_steps=15 format=3 uid="uid://frc6t6e2kfud"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2v5fu"]
+[ext_resource type="Texture2D" uid="uid://b2swclx5a7xh3" path="res://Tile.png" id="2_pyvgj"]
+[ext_resource type="PackedScene" uid="uid://sfcpd10xgw1n" path="res://InGameInterface.tscn" id="3_1kcep"]
+[ext_resource type="PackedScene" uid="uid://dxyuv5f8s2jpt" path="res://ScoreBoard.tscn" id="4_waamt"]
+[ext_resource type="PackedScene" uid="uid://dg7cxmd6iq7sk" path="res://victoryPanel.tscn" id="5_y5g5l"]
+[ext_resource type="AudioStream" uid="uid://0nqpv1ax5qo4" path="res://Sound/blockade.ogg" id="6_evxho"]
+[ext_resource type="AudioStream" uid="uid://dkseji5a6deb" path="res://Sound/place.ogg" id="7_gj2dm"]
+[ext_resource type="AudioStream" uid="uid://nc1tsxu8m8mm" path="res://Sound/trap.ogg" id="8_ktk00"]
+[ext_resource type="AudioStream" uid="uid://dw25c2nci5yfr" path="res://Sound/grenade.ogg" id="9_7msj0"]
+[ext_resource type="AudioStream" uid="uid://dwcgcdsjmpemh" path="res://Sound/virus.ogg" id="10_7yvq2"]
+[ext_resource type="AudioStream" uid="uid://bmmk6t8yi4tdt" path="res://Sound/safeZone.ogg" id="11_63ctl"]
+[ext_resource type="Texture2D" uid="uid://dsmvnjhk4hy0p" path="res://1.png" id="12_h38ho"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_upmfb"]
+texture = ExtResource("2_pyvgj")
+texture_region_size = Vector2i(12, 12)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+6:1/0 = 0
+5:1/0 = 0
+4:1/0 = 0
+3:1/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:1/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+7:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_njktk"]
+tile_size = Vector2i(12, 12)
+sources/0 = SubResource("TileSetAtlasSource_upmfb")
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_2v5fu")
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(116, 62)
+scale = Vector2(0.617163, 0.64265)
+texture = ExtResource("12_h38ho")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_1kcep")]
+layer = 2
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_njktk")
+format = 2
+layer_0/name = "BackGround"
+layer_1/name = "ForeGround"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "UpperArea"
+layer_2/z_index = 3
+layer_2/tile_data = PackedInt32Array()
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(116, 61)
+zoom = Vector2(7, 7)
+
+[node name="CanvasLayer2" parent="." instance=ExtResource("4_waamt")]
+
+[node name="victoryPanel" parent="." instance=ExtResource("5_y5g5l")]
+
+[node name="sound" type="Node2D" parent="."]
+
+[node name="blockade" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("6_evxho")
+
+[node name="place" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("7_gj2dm")
+
+[node name="trap" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("8_ktk00")
+
+[node name="grenade" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("9_7msj0")
+
+[node name="virus" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("10_7yvq2")
+
+[node name="safeZone" type="AudioStreamPlayer2D" parent="sound"]
+stream = ExtResource("11_63ctl")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://sfcpd10xgw1n"]
+
+[ext_resource type="Texture2D" uid="uid://b2swclx5a7xh3" path="res://Tile.png" id="1_bpj7o"]
+[ext_resource type="Script" path="res://InGameInterface.gd" id="1_vf02x"]
+[ext_resource type="PackedScene" uid="uid://cat28wn8thwxf" path="res://label.tscn" id="2_47y7g"]
+[ext_resource type="PackedScene" uid="uid://cxiiucn6jibrf" path="res://button.tscn" id="4_7rmyh"]
+[ext_resource type="PackedScene" uid="uid://djfycwpo1y3or" path="res://Skills.tscn" id="5_appg8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1365p"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lvog"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7tlf"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdqmb"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s28kx"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05025"]
+atlas = ExtResource("1_bpj7o")
+region = Rect2(72, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cl2fc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1365p")
+}],
+"loop": true,
+"name": &"player1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lvog")
+}],
+"loop": true,
+"name": &"player2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7tlf")
+}],
+"loop": true,
+"name": &"player3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdqmb")
+}],
+"loop": true,
+"name": &"player4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s28kx")
+}],
+"loop": true,
+"name": &"player5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05025")
+}],
+"loop": true,
+"name": &"player6",
+"speed": 5.0
+}]
+
+[node name="turnInterface" type="CanvasLayer"]
+script = ExtResource("1_vf02x")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+scale = Vector2(0.01, 0.01)
+text = "`"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(960, 527)
+scale = Vector2(183, 46.5417)
+texture = ExtResource("1_bpj7o")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="tittle" parent="Control" instance=ExtResource("2_47y7g")]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 326.0
+offset_right = 2297.0
+offset_bottom = 527.0
+scale = Vector2(0.7, 0.7)
+text = "PLAYER 1 TURN"
+
+[node name="desk" parent="Control" instance=ExtResource("2_47y7g")]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 467.0
+offset_right = 4713.0
+offset_bottom = 1807.0
+scale = Vector2(0.2, 0.2)
+text = "Select a filled tile and try to infected 3x3 area to become your"
+autowrap_mode = 2
+
+[node name="Button" parent="Control" instance=ExtResource("4_7rmyh")]
+layout_mode = 0
+offset_left = 587.0
+offset_top = 550.0
+offset_right = 1373.0
+offset_bottom = 671.0
+text = "ROLL THE DICE"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(984, 778)
+scale = Vector2(14, 14)
+sprite_frames = SubResource("SpriteFrames_cl2fc")
+animation = &"player6"
+
+[node name="Skills" parent="Control" instance=ExtResource("5_appg8")]
+position = Vector2(528, 582)
+scale = Vector2(14, 14)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]

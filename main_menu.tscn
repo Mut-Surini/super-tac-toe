@@ -1,0 +1,110 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnyan43khstsg"]
+
+[ext_resource type="PackedScene" uid="uid://cat28wn8thwxf" path="res://label.tscn" id="1_wl8k8"]
+[ext_resource type="Script" path="res://main_menu.gd" id="1_yepcj"]
+[ext_resource type="Texture2D" uid="uid://b2swclx5a7xh3" path="res://Tile.png" id="2_omjej"]
+[ext_resource type="PackedScene" uid="uid://cxiiucn6jibrf" path="res://button.tscn" id="3_dugo2"]
+[ext_resource type="Texture2D" uid="uid://dsmvnjhk4hy0p" path="res://1.png" id="5_j3qae"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_yepcj")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" parent="CanvasLayer/Control" instance=ExtResource("1_wl8k8")]
+layout_mode = 0
+offset_left = 179.0
+offset_top = -111.0
+offset_right = 1225.0
+offset_bottom = 498.0
+scale = Vector2(1.5, 1.5)
+text = "SUPER 
+TAC x TOE"
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
+position = Vector2(959, 953)
+scale = Vector2(183, 46.5417)
+texture = ExtResource("2_omjej")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="play" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 578.0
+offset_top = 758.0
+offset_right = 1302.0
+offset_bottom = 899.0
+text = "PLAY GAME"
+
+[node name="Button3" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 611.0
+offset_top = 917.0
+offset_right = 1090.0
+offset_bottom = 1058.0
+theme_override_colors/font_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_focus_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 0.788235, 1)
+disabled = true
+text = "5 Player"
+
+[node name="area" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 813.0
+offset_right = 2037.0
+offset_bottom = 954.0
+scale = Vector2(0.6, 0.6)
+theme_override_colors/font_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_pressed_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_hover_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_focus_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.8, 0.8, 0.788235, 1)
+theme_override_colors/font_disabled_color = Color(0.8, 0.8, 0.788235, 1)
+disabled = true
+text = "2x2"
+
+[node name="upPlayer" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 1116.0
+offset_top = 915.0
+offset_right = 1269.0
+offset_bottom = 1056.0
+text = ">"
+
+[node name="areaButton" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 1592.0
+offset_top = 736.0
+offset_right = 2124.0
+offset_bottom = 877.0
+scale = Vector2(0.5, 0.5)
+text = "< AREA "
+
+[node name="exit" parent="CanvasLayer/Control" instance=ExtResource("3_dugo2")]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 1003.0
+offset_right = 367.0
+offset_bottom = 1144.0
+scale = Vector2(0.5, 0.5)
+text = "EXIT"
+
+[node name="1" type="Sprite2D" parent="."]
+position = Vector2(1025, 911)
+scale = Vector2(5.96142, 5.96142)
+texture = ExtResource("5_j3qae")
+
+[connection signal="pressed" from="CanvasLayer/Control/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/upPlayer" to="." method="_on_up_player_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/areaButton" to="." method="_on_area_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/exit" to="." method="_on_exit_pressed"]

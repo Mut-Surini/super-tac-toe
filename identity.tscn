@@ -1,0 +1,131 @@
+[gd_scene load_steps=11 format=3 uid="uid://divgl2y7ljubm"]
+
+[ext_resource type="Script" path="res://identity.gd" id="1_ra4ji"]
+[ext_resource type="Texture2D" uid="uid://b2swclx5a7xh3" path="res://Tile.png" id="1_sxnq2"]
+[ext_resource type="PackedScene" uid="uid://cat28wn8thwxf" path="res://label.tscn" id="3_fig5b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1365p"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(12, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lvog"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(24, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7tlf"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(36, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdqmb"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(48, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s28kx"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(60, 0, 12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_05025"]
+atlas = ExtResource("1_sxnq2")
+region = Rect2(72, 0, 12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4s8iy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1365p")
+}],
+"loop": true,
+"name": &"player1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lvog")
+}],
+"loop": true,
+"name": &"player2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7tlf")
+}],
+"loop": true,
+"name": &"player3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdqmb")
+}],
+"loop": true,
+"name": &"player4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s28kx")
+}],
+"loop": true,
+"name": &"player5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05025")
+}],
+"loop": true,
+"name": &"player6",
+"speed": 5.0
+}]
+
+[node name="identity" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ra4ji")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.340127, 0.485866, 0.622755, 1)
+position = Vector2(17.8333, -6.83333)
+scale = Vector2(7.47222, 3.36111)
+texture = ExtResource("1_sxnq2")
+region_enabled = true
+region_rect = Rect2(84, 0, 12, 12)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(17.6667, -6.83333)
+scale = Vector2(6.94444, 2.86111)
+texture = ExtResource("1_sxnq2")
+region_enabled = true
+region_rect = Rect2(0, 0, 12, 12)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-6.33333, -6.66667)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4s8iy")
+animation = &"player6"
+frame_progress = 0.871882
+
+[node name="Label" parent="." instance=ExtResource("3_fig5b")]
+offset_left = 3.0
+offset_top = -19.0
+offset_right = 966.0
+offset_bottom = 241.0
+scale = Vector2(0.05, 0.05)
+text = "PLAYER 1
+"
+
+[node name="Score" parent="." instance=ExtResource("3_fig5b")]
+offset_left = 23.6667
+offset_top = -8.0
+offset_right = 526.667
+offset_bottom = 252.0
+scale = Vector2(0.05, 0.05)
+text = "0"
+
+[node name="Label2" parent="." instance=ExtResource("3_fig5b")]
+offset_left = 3.0
+offset_top = -5.33333
+offset_right = 744.0
+offset_bottom = 254.667
+scale = Vector2(0.03, 0.03)
+text = "SCORE"
